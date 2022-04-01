@@ -3,6 +3,7 @@ package sistema_libreria;
 
 import Beans.Acceso;
 import Model.Cliente;
+import com.Carlos.BD.ConexionAMYSQL;
 import javax.swing.JOptionPane;
 import sistema_libreria.FrmBienvenida;
 import sistema_libreria.FrmSignUp;
@@ -44,6 +45,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnSignIn = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
+        btnBD = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -113,7 +115,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
-        jSeparator1.setBorder(null);
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 168, 220, -1));
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
@@ -157,6 +158,14 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel3.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 80, 40));
 
+        btnBD.setText("BD");
+        btnBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBDActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 50, 40));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -171,7 +180,7 @@ public class FrmLogin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -233,6 +242,14 @@ public class FrmLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSignUpActionPerformed
 
+    private void btnBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDActionPerformed
+      
+        ConexionAMYSQL ClaseDeConexion = new ConexionAMYSQL();
+        
+        ClaseDeConexion.getConecction();
+        
+    }//GEN-LAST:event_btnBDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,6 +287,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBD;
     private javax.swing.JButton btnSignIn;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
