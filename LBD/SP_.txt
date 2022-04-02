@@ -1,0 +1,16 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_I_ROL`(PUsuario varchar(15), PContrasenia varchar(25))
+BEGIN
+
+insert into rol (Usuario, Contrasenia) values (PUsuario, md5(PContrasenia));
+
+END
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_S_ROL`(PUsuario varchar(15), PContrasenia varchar(25)
+)
+BEGIN
+select * from rol x where x.Usuario=PUsuario and x.Contrasenia=md5(PContrasenia);
+END
