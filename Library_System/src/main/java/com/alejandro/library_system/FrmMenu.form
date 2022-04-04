@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JMenu" name="jMenu1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenu1"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JMenu" name="jMenu2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenu2"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Menu class="java.awt.PopupMenu" name="popupMenu1">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="popupMenu1"/>
+      </Properties>
+    </Menu>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,92 +48,132 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnAgregarLibro" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnCompra" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnEditoriales" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnClientes" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnVentas" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnLector" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="btnPrestamo" min="-2" pref="186" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="560" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="BtnCerrarSesion" min="-2" pref="150" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-              <Component id="btnAgregarLibro" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnCompra" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnEditoriales" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnClientes" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnVentas" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnLector" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnPrestamo" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
-              <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnAgregarLibro">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar Libro"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCompra">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Compra"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnClientes">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Clientes"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnEditoriales">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Editoriales"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnVentas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ventas"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnLector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Lector"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnPrestamo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Prestamo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnCerrarSesion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCerrarSesionActionPerformed"/>
-      </Events>
-    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnVentas" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnLector" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnEditoriales" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnPrestamo" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnClientes" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnCompra" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="btnAgregarLibro" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="554" max="32767" attributes="0"/>
+              </Group>
+              <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                  <Component id="btnAgregarLibro" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnCompra" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnEditoriales" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnClientes" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnVentas" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnLector" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnPrestamo" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <Component id="BtnCerrarSesion" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="BtnCerrarSesion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCerrarSesionActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAgregarLibro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Agregar Libro"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCompra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Compra"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnEditoriales">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editoriales"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnClientes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Clientes"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVentas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ventas"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLector">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lector"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnPrestamo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Prestamo"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
