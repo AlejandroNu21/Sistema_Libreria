@@ -4,6 +4,9 @@
  */
 package com.alejandro.library_system;
 
+import Beans.Cliente;
+import Entidades.clientes;
+
 /**
  *
  * @author Kevin
@@ -58,11 +61,21 @@ public class FrmClientes extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
@@ -188,6 +201,37 @@ public class FrmClientes extends javax.swing.JFrame {
         if (c < '0' || c > '9')
             evt.consume();
     }//GEN-LAST:event_txtEdadClienteKeyTyped
+
+    public void Limpiar() {
+        txtCodigoCliente.setText("");
+        txtNombreCliente.setText("");
+        txtApellidoCliente.setText("");
+        txtEdadCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtTelefonoCliente.setText("");
+
+    }
+
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        clientes es = new clientes();
+        Cliente esDAO = new Cliente();
+
+        es.setCodigoCliente(txtCodigoCliente.getText());
+        es.setNombreCliente(txtNombreCliente.getText());
+        es.setApellidoCliente(txtApellidoCliente.getText());
+        es.setEdad(txtEdadCliente.getText());
+        es.setDireccion(txtDireccionCliente.getText());
+        es.setTelefono(txtTelefonoCliente.getText());
+        esDAO.AddCliente(es);
+        Limpiar();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+       FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

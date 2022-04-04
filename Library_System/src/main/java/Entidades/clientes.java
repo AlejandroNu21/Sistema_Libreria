@@ -13,7 +13,7 @@ public class clientes {
     private String CodigoCliente;
     private String NombreCliente;
     private String ApellidoCliente;
-    private int Edad;
+    private String Edad;
     private String Direccion;
     private String Telefono;
 
@@ -41,13 +41,15 @@ public class clientes {
         this.ApellidoCliente = ApellidoCliente;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return Edad;
     }
 
-    public void setEdad(int Edad) {
+    public void setEdad(String Edad) {
         this.Edad = Edad;
     }
+
+
 
     public String getDireccion() {
         return Direccion;
