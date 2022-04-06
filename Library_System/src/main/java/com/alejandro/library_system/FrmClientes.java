@@ -209,7 +209,6 @@ public class FrmClientes extends javax.swing.JFrame {
         txtEdadCliente.setText("");
         txtDireccionCliente.setText("");
         txtTelefonoCliente.setText("");
-
     }
 
 
@@ -225,6 +224,7 @@ public class FrmClientes extends javax.swing.JFrame {
         es.setTelefono(txtTelefonoCliente.getText());
         esDAO.AddCliente(es);
         Limpiar();
+        txtCodigoCliente.requestFocus();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
