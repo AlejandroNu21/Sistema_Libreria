@@ -4,6 +4,12 @@
  */
 package com.alejandro.library_system;
 
+import Beans.Cliente;
+import Beans.Editorials;
+import Entidades.Editorial;
+import Entidades.clientes;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
@@ -70,11 +76,21 @@ public class FrmEditorial extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,6 +158,41 @@ public class FrmEditorial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void Limpiar() {
+        txtCodigoEditorial.setText("");
+        txtNombreEditorial.setText("");
+        txtDireccionEditorial.setText("");
+        txtTelefonoEditorial.setText("");
+        txtCodigoEditorial.requestFocus();
+    }
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+
+        if (txtCodigoEditorial.getText().equals("") || txtNombreEditorial.getText().equals("")
+                || txtDireccionEditorial.getText().equals("") || txtTelefonoEditorial.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            txtCodigoEditorial.requestFocus();
+        } else {
+            Editorial es = new Editorial();
+            Editorials esDAO = new Editorials();
+
+            es.setCodigoEditorial(txtCodigoEditorial.getText());
+            es.setNombre_Editorial(txtNombreEditorial.getText());
+            es.setDireccion_Editorial(txtDireccionEditorial.getText());
+            es.setTelefono_Editorial(txtTelefonoEditorial.getText());
+
+            esDAO.AddEditorial(es);
+            Limpiar();
+            //txtCodigoEditorial.requestFocus();
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
