@@ -34,6 +34,7 @@ public class Editorials {
 
             while (resultado.next()) {
                 Editorial ed = new Editorial();
+                ed.setIdEditorial(resultado.getInt("idEditorial"));
                 ed.setCodigoEditorial(resultado.getString("CodigoEditorial"));
                 ed.setNombre_Editorial(resultado.getString("Nombre_Editorial"));
                 ed.setDireccion_Editorial(resultado.getString("Direccion_Editorial"));
@@ -66,5 +67,6 @@ public class Editorials {
         }
 
     }
+    
 
 }

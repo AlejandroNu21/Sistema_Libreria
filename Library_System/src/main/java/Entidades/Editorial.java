@@ -10,10 +10,19 @@ package Entidades;
  */
 public class Editorial {
 
+    private int idEditorial;
     private String CodigoEditorial;
     private String Nombre_Editorial;
     private String Direccion_Editorial;
     private String Telefono_Editorial;
+
+    public int getIdEditorial() {
+        return idEditorial;
+    }
+
+    public void setIdEditorial(int idEditorial) {
+        this.idEditorial = idEditorial;
+    }
 
     public String getCodigoEditorial() {
         return CodigoEditorial;
