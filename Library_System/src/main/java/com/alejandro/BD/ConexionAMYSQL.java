@@ -18,7 +18,7 @@ public class ConexionAMYSQL {
     try {
         
         String url = "jdbc:mysql://localhost:3306/libreriabd";
-        String user = "Vkaiido";
+        String user = "root";
         String password ="root";
         
         ConnectionBD=DriverManager.getConnection(url,user,password);

@@ -9,6 +9,15 @@ package Entidades;
  * @author Kevin
  */
 public class formaDePago {
+    private int idformadepago;
+
+    public int getIdformadepago() {
+        return idformadepago;
+    }
+
+    public void setIdformadepago(int idformadepago) {
+        this.idformadepago = idformadepago;
+    }
     private String Pago;
 
     public String getPago() {

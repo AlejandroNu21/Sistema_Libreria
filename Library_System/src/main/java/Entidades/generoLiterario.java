@@ -9,6 +9,15 @@ package Entidades;
  * @author Kevin
  */
 public class generoLiterario {
+    private int idGeneroLiterario;
+
+    public int getIdGeneroLiterario() {
+        return idGeneroLiterario;
+    }
+
+    public void setIdGeneroLiterario(int idGeneroLiterario) {
+        this.idGeneroLiterario = idGeneroLiterario;
+    }
     private String Genero_Literario;
 
     public String getGenero_Literario() {

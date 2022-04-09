@@ -9,6 +9,16 @@ package Entidades;
  * @author Kevin
  */
 public class Categoria {
+    private int idCategoria;
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+    
     private String Categoria;
 
     public String getCategoria() {
