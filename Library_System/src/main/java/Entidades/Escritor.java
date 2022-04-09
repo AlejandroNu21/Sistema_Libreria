@@ -10,10 +10,19 @@ package Entidades;
  */
 public class Escritor {
 
-    private String Codigo_Escritor;
+    private int idEscritor;
+     private String Codigo_Escritor;
     private String Nombre_Escritor;
     private String Apellido_Escritor;
     private String Pais_Escritor;
+
+    public int getIdEscritor() {
+        return idEscritor;
+    }
+
+    public void setIdEscritor(int idEscritor) {
+        this.idEscritor = idEscritor;
+    }
 
     public String getCodigo_Escritor() {
         return Codigo_Escritor;
