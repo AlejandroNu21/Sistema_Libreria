@@ -6,6 +6,7 @@ package com.alejandro.library_system;
 
 import Beans.Categoria_beans;
 import Entidades.Categoria;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -116,13 +117,17 @@ public class FrmCategoria extends javax.swing.JFrame {
     
     
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        Categoria cat = new Categoria();
+        
+        if(txtCategoria.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Campo vacio");
+        }else{
+         Categoria cat = new Categoria();
         Categoria_beans catDAO = new Categoria_beans();
         
         cat.setCategoria(txtCategoria.getText());
         catDAO.AgregarCategoria(cat);
         Limpiar();
-        txtCategoria.requestFocus();
+        txtCategoria.requestFocus();}
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
