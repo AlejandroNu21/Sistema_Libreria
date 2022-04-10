@@ -75,7 +75,7 @@ public class Subgenero_beans implements ISubgenero{
     public void ActualizarSubGeneroLiterario(subGeneroLiterario subGeneroLiterario) {
          try 
         {
-            CallableStatement statement = conexion.prepareCall("SP_U_CATEGORIA(?,?)");
+            CallableStatement statement = conexion.prepareCall("SP_U_SUBGENERO(?,?)");
             statement.setString("Pcategoria", subGeneroLiterario.getSubgenero_Literario());
             statement.setInt("PidCategoria", subGeneroLiterario.getIdSugeneroLiterario());
  
