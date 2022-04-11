@@ -37,11 +37,11 @@ public class Login {
          }
          switch(x){
          
-             case 1 : JOptionPane.showMessageDialog(null, "Bienvenid@/o "+usu.getUsuario());
+             case 1 : JOptionPane.showMessageDialog(null, "Bienvenido "+usu.getUsuario());
              valid = true;
              break;
              
-             case 0 : JOptionPane.showMessageDialog(null, "No se ha encontrado el Usuario");
+             case 0 : JOptionPane.showMessageDialog(null, "Lo sentimos, no se ha encontrado el Usuario");
              break;
          }
          

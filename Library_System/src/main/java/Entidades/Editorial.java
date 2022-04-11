@@ -19,6 +19,27 @@ public class Editorial {
     public int getIdEditorial() {
         return idEditorial;
     }
+    
+
+    public Editorial(int idEditorial, String CodigoEditorial, String Nombre_Editorial, String Direccion_Editorial, String Telefono_Editorial) {
+        this.idEditorial = idEditorial;
+        this.CodigoEditorial = CodigoEditorial;
+        this.Nombre_Editorial = Nombre_Editorial;
+        this.Direccion_Editorial = Direccion_Editorial;
+        this.Telefono_Editorial = Telefono_Editorial;
+    }
+
+    public Editorial(String CodigoEditorial, String Nombre_Editorial, String Direccion_Editorial, String Telefono_Editorial) {
+        this.CodigoEditorial = CodigoEditorial;
+        this.Nombre_Editorial = Nombre_Editorial;
+        this.Direccion_Editorial = Direccion_Editorial;
+        this.Telefono_Editorial = Telefono_Editorial;
+    }
+
+    public Editorial() {
+    }
+    
+    
 
     public void setIdEditorial(int idEditorial) {
         this.idEditorial = idEditorial;
@@ -55,5 +76,6 @@ public class Editorial {
     public void setTelefono_Editorial(String Telefono_Editorial) {
         this.Telefono_Editorial = Telefono_Editorial;
     }
+    
 
 }

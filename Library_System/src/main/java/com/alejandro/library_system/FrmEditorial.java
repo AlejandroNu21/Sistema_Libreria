@@ -52,6 +52,8 @@ public class FrmEditorial extends javax.swing.JFrame {
         TblEditorial = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         txtIdEditorial = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
+        btmBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -123,6 +125,27 @@ public class FrmEditorial extends javax.swing.JFrame {
 
         txtIdEditorial.setEditable(false);
         txtIdEditorial.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        txtIdEditorial.setEnabled(false);
+
+        btnActualizar.setBackground(java.awt.Color.blue);
+        btnActualizar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(254, 254, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btmBorrar.setBackground(java.awt.Color.blue);
+        btmBorrar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btmBorrar.setForeground(new java.awt.Color(254, 254, 255));
+        btmBorrar.setText("Borrar");
+        btmBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,27 +160,10 @@ public class FrmEditorial extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnCancelar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(39, 39, 39))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtTelefonoEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                                            .addComponent(txtDireccionEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtNombreEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(jLabel2)
@@ -168,10 +174,33 @@ public class FrmEditorial extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtCodigoEditorial, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                                            .addComponent(txtIdEditorial))))))
-                        .addGap(0, 41, Short.MAX_VALUE))
+                                            .addComponent(txtIdEditorial)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtTelefonoEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                                .addComponent(txtDireccionEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtNombreEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnCancelar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(13, 13, 13)
+                                        .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btmBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 13, Short.MAX_VALUE)
+                        .addGap(0, 40, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -203,7 +232,9 @@ public class FrmEditorial extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btmBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -274,9 +305,10 @@ public class FrmEditorial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void TblEditorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEditorialMouseClicked
-        isSelect = true;
+        isSelect = true;  
         try {
-            txtIdEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
+            
+            Id= Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
             txtCodigoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 1).toString());
             txtNombreEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 2).toString());
             txtDireccionEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 3).toString());
@@ -285,6 +317,41 @@ public class FrmEditorial extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_TblEditorialMouseClicked
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        try{
+            if(isSelect==true){
+                
+            Editorials editBeans = new Editorials();
+            int idEditorial= Id;
+            String CodigoEditorial = txtCodigoEditorial.getText();
+             String Nombre_Editorial = txtNombreEditorial.getText();
+              String Direccion_Editorial = txtDireccionEditorial.getText();
+               String Telefono_Editorial = txtTelefonoEditorial.getText();
+            
+            int row = TblEditorial.getSelectedRow();
+            
+            TblEditorial.setValueAt(CodigoEditorial, row, 1);
+            TblEditorial.setValueAt(Nombre_Editorial, row, 2);
+            TblEditorial.setValueAt(Direccion_Editorial, row, 3);
+            TblEditorial.setValueAt(Telefono_Editorial, row, 4);
+            
+            Editorial edi = new Editorial(idEditorial, CodigoEditorial, Nombre_Editorial,Direccion_Editorial,Telefono_Editorial);
+            editBeans.UpdateEditorial(edi);
+            carga();
+            isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btmBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,9 +389,12 @@ public class FrmEditorial extends javax.swing.JFrame {
     }
 
     public boolean isSelect = false;
+    int Id = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEditorial;
+    private javax.swing.JButton btmBorrar;
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
