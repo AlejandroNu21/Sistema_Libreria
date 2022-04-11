@@ -4,6 +4,10 @@
  */
 package com.alejandro.library_system;
 
+import Entidades.subGeneroLiterario;
+import javax.swing.JOptionPane;
+import Beans.Subgenero_beans;
+
 /**
  *
  * @author Kevin
@@ -39,11 +43,21 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel1.setText("S. G. Literario");
@@ -92,6 +106,34 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    
+      public void Limpiar() {
+        txtSubGeneroLiterario.setText("");
+    }
+    
+    
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+      
+        if (txtSubGeneroLiterario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo vacio");
+        } else {
+            subGeneroLiterario sub = new subGeneroLiterario();
+            subGeneroLiterario subDAO = new subGeneroLiterario();
+
+            sub.setSubgenero_Literario(txtSubGeneroLiterario.getText());
+            subDAO.AgregarSubGeneroLiterario(sub);
+            Limpiar();
+            txtSubGeneroLiterario.requestFocus();
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+      FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,10 @@
  */
 package com.alejandro.library_system;
 
+import Beans.Categoria_beans;
+import Entidades.Categoria;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
@@ -49,11 +53,21 @@ public class FrmCategoria extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,6 +109,32 @@ public class FrmCategoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+      public void Limpiar() {
+        txtCategoria.setText("");
+    }
+    
+    
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        
+        if(txtCategoria.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Campo vacio");
+        }else{
+         Categoria cat = new Categoria();
+        Categoria_beans catDAO = new Categoria_beans();
+        
+        cat.setCategoria(txtCategoria.getText());
+        catDAO.AgregarCategoria(cat);
+        Limpiar();
+        txtCategoria.requestFocus();}
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+       FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false); 
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

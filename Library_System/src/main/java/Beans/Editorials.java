@@ -68,5 +68,22 @@ public class Editorials {
 
     }
     
+    public void UpdateEditorial(Editorial edi) {
+     try {
+            CallableStatement cb = conexion.prepareCall("{call SP_U_EDITORIAL(?,?,?,?,?)}");
+            cb.setInt(5,edi.getIdEditorial());
+            cb.setString(1, edi.getCodigoEditorial());
+            cb.setString(2, edi.getNombre_Editorial());
+            cb.setString(3, edi.getDireccion_Editorial());
+            cb.setString(4, edi.getTelefono_Editorial());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Editorial Actualizado","Exito",JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    
+    }
 
 }
