@@ -9,12 +9,30 @@ package Entidades;
  * @author Kevin
  */
 public class Lector {
+
+    private int idLector;
     private String CodigoLector;
     private String Nombre_Lector;
     private String Apellido_Lector;
-    private int Edad;
+
+    public String getEdad() {
+        return Edad;
+    }
+
+    public void setEdad(String Edad) {
+        this.Edad = Edad;
+    }
+    private String Edad;
     private String Direccion;
     private String Telefono;
+
+    public int getIdLector() {
+        return idLector;
+    }
+
+    public void setIdLector(int idLector) {
+        this.idLector = idLector;
+    }
 
     public String getCodigoLector() {
         return CodigoLector;
@@ -40,13 +58,13 @@ public class Lector {
         this.Apellido_Lector = Apellido_Lector;
     }
 
-    public int getEdad() {
-        return Edad;
-    }
-
-    public void setEdad(int Edad) {
-        this.Edad = Edad;
-    }
+//    public int getEdad() {
+//        return Edad;
+//    }
+//
+//    public void setEdad(int Edad) {
+//        this.Edad = Edad;
+//    }
 
     public String getDireccion() {
         return Direccion;
