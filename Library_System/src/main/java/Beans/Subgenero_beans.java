@@ -19,12 +19,12 @@ public class Subgenero_beans implements ISubgenero{
     ConexionAMYSQL con = new ConexionAMYSQL();
     Connection conexion = con.getConecction();
 
-    @Override
+    //@Override
     public ArrayList<subGeneroLiterario> MostrarSubGeneroLiterario() {
         ArrayList<subGeneroLiterario> subgenero = new ArrayList<subGeneroLiterario>();
 
         try {
-            CallableStatement cbt = conexion.prepareCall("select * from subgenero_literario");
+            CallableStatement cbt = conexion.prepareCall("call SP_S_SUBGENERO");
             ResultSet rst = cbt.executeQuery();
 
             while (rst.next()) {
@@ -42,7 +42,7 @@ public class Subgenero_beans implements ISubgenero{
     @Override
     public void AgregarSubGeneroLiterario(subGeneroLiterario subGeneroLiterario) {
         try {
-            CallableStatement statement = conexion.prepareCall("SP_I_SUBGENEROS(?)");
+            CallableStatement statement = conexion.prepareCall("call SP_I_SUBGENERO(?)");
             statement.setString("PSubgenero", subGeneroLiterario.getSubgenero_Literario()); 
 
             statement.execute();
@@ -55,7 +55,7 @@ public class Subgenero_beans implements ISubgenero{
         
     }
 
-    @Override
+    //@Override
     public void ElminarSubGeneroLiterario(subGeneroLiterario subGeneroLiterario) {
         try 
         {
@@ -71,7 +71,7 @@ public class Subgenero_beans implements ISubgenero{
         }
     }
 
-    @Override
+    //@Override
     public void ActualizarSubGeneroLiterario(subGeneroLiterario subGeneroLiterario) {
          try 
         {

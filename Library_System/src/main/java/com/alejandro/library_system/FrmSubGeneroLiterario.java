@@ -4,9 +4,14 @@
  */
 package com.alejandro.library_system;
 
+import Beans.Escritores;
 import Entidades.subGeneroLiterario;
 import javax.swing.JOptionPane;
 import Beans.Subgenero_beans;
+import Entidades.Escritor;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +25,8 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
     public FrmSubGeneroLiterario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        carga();
+        txtSubGeneroLiterario.requestFocus();
     }
 
     /**
@@ -36,6 +43,10 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtSubGeneroLiterario = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TblSubGenero = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        txtIdSubGenero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,24 +79,57 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
 
         txtSubGeneroLiterario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
+        TblSubGenero.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TblSubGenero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblSubGeneroMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TblSubGenero);
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setText("Id");
+
+        txtIdSubGenero.setEditable(false);
+        txtIdSubGenero.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(59, 59, 59)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSubGeneroLiterario)))
+                        .addGap(80, 80, 80)
+                        .addComponent(btnCancelar)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSubGeneroLiterario)
+                                    .addComponent(txtIdSubGenero))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,20 +137,49 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtIdSubGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public void carga() {
+        Limpiar();
+        String titulos[] = {"Id", "Sub Genero Literario"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Subgenero_beans es = new Subgenero_beans();
+        ArrayList<subGeneroLiterario> listar = es.MostrarSubGeneroLiterario();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            subGeneroLiterario estBucle = (subGeneroLiterario) iterador.next();
+            fila[0] = estBucle.getIdSugeneroLiterario();
+            fila[1] = estBucle.getSubgenero_Literario();
+            df.addRow(fila);
+        }
+        TblSubGenero.setModel(df);
+    }
+    
     
     
       public void Limpiar() {
@@ -120,11 +193,11 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo vacio");
         } else {
             subGeneroLiterario sub = new subGeneroLiterario();
-            subGeneroLiterario subDAO = new subGeneroLiterario();
-
+            Subgenero_beans subDAO = new Subgenero_beans();
             sub.setSubgenero_Literario(txtSubGeneroLiterario.getText());
             subDAO.AgregarSubGeneroLiterario(sub);
             Limpiar();
+            carga();
             txtSubGeneroLiterario.requestFocus();
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -134,6 +207,16 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         regresar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void TblSubGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblSubGeneroMouseClicked
+        isSelect = true;
+        try {
+            txtIdSubGenero.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 0).toString());
+            txtSubGeneroLiterario.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_TblSubGeneroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -170,11 +253,17 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         });
     }
 
+       public boolean isSelect = false;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TblSubGenero;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtIdSubGenero;
     private javax.swing.JTextField txtSubGeneroLiterario;
     // End of variables declaration//GEN-END:variables
 }
