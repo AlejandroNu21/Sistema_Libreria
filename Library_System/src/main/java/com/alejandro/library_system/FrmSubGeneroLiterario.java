@@ -4,9 +4,9 @@
  */
 package com.alejandro.library_system;
 
-import Beans.Subgenero_beans;
 import Entidades.subGeneroLiterario;
 import javax.swing.JOptionPane;
+import Beans.Subgenero_beans;
 
 /**
  *
@@ -107,6 +107,8 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
       public void Limpiar() {
         txtSubGeneroLiterario.setText("");
     }
@@ -121,7 +123,7 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
             subGeneroLiterario subDAO = new subGeneroLiterario();
 
             sub.setSubgenero_Literario(txtSubGeneroLiterario.getText());
-            subDAO.
+            subDAO.AgregarSubGeneroLiterario(sub);
             Limpiar();
             txtSubGeneroLiterario.requestFocus();
         }
