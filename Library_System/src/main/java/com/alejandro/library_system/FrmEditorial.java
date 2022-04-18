@@ -8,6 +8,7 @@ import Beans.Cliente;
 import Beans.Editorials;
 import Entidades.Editorial;
 import Entidades.clientes;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -116,6 +117,11 @@ public class FrmEditorial extends javax.swing.JFrame {
         TblEditorial.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblEditorialMouseClicked(evt);
+            }
+        });
+        TblEditorial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblEditorialKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(TblEditorial);
@@ -301,10 +307,10 @@ public class FrmEditorial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void TblEditorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEditorialMouseClicked
-        isSelect = true;  
+        isSelect = true;
         try {
-            
-            Id= Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
+
+            Id = Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
             txtCodigoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 1).toString());
             txtNombreEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 2).toString());
             txtDireccionEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 3).toString());
@@ -315,33 +321,33 @@ public class FrmEditorial extends javax.swing.JFrame {
     }//GEN-LAST:event_TblEditorialMouseClicked
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            if(isSelect==true){
-                
-            Editorials editBeans = new Editorials();
-            int idEditorial= Id;
-            String CodigoEditorial = txtCodigoEditorial.getText();
-             String Nombre_Editorial = txtNombreEditorial.getText();
-              String Direccion_Editorial = txtDireccionEditorial.getText();
-               String Telefono_Editorial = txtTelefonoEditorial.getText();
-            
-            int row = TblEditorial.getSelectedRow();
-            
-            TblEditorial.setValueAt(CodigoEditorial, row, 1);
-            TblEditorial.setValueAt(Nombre_Editorial, row, 2);
-            TblEditorial.setValueAt(Direccion_Editorial, row, 3);
-            TblEditorial.setValueAt(Telefono_Editorial, row, 4);
-            
-            Editorial edi = new Editorial(idEditorial, CodigoEditorial, Nombre_Editorial,Direccion_Editorial,Telefono_Editorial);
-            editBeans.UpdateEditorial(edi);
-            carga();
-            isSelect = false;
-            }else{
-                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+        try {
+            if (isSelect == true) {
+
+                Editorials editBeans = new Editorials();
+                int idEditorial = Id;
+                String CodigoEditorial = txtCodigoEditorial.getText();
+                String Nombre_Editorial = txtNombreEditorial.getText();
+                String Direccion_Editorial = txtDireccionEditorial.getText();
+                String Telefono_Editorial = txtTelefonoEditorial.getText();
+
+                int row = TblEditorial.getSelectedRow();
+
+                TblEditorial.setValueAt(CodigoEditorial, row, 1);
+                TblEditorial.setValueAt(Nombre_Editorial, row, 2);
+                TblEditorial.setValueAt(Direccion_Editorial, row, 3);
+                TblEditorial.setValueAt(Telefono_Editorial, row, 4);
+
+                Editorial edi = new Editorial(idEditorial, CodigoEditorial, Nombre_Editorial, Direccion_Editorial, Telefono_Editorial);
+                editBeans.UpdateEditorial(edi);
+                carga();
+                isSelect = false;
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
-            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
@@ -368,6 +374,23 @@ public class FrmEditorial extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
         }
     }//GEN-LAST:event_btmBorrarActionPerformed
+
+    private void TblEditorialKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEditorialKeyReleased
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblEditorial.getSelectedRow();
+
+            try {
+                this.txtIdEditorial.setText(TblEditorial.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCodigoEditorial.setText(TblEditorial.getValueAt(filaSeleccionada, 1).toString());
+                this.txtNombreEditorial.setText(TblEditorial.getValueAt(filaSeleccionada, 2).toString());
+                this.txtDireccionEditorial.setText(TblEditorial.getValueAt(filaSeleccionada, 3).toString());
+                this.txtTelefonoEditorial.setText(TblEditorial.getValueAt(filaSeleccionada, 4).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblEditorialKeyReleased
 
     /**
      * @param args the command line arguments

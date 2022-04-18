@@ -8,6 +8,7 @@ import Beans.Editorials;
 import Beans.Escritores;
 import Entidades.Editorial;
 import Entidades.Escritor;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -113,6 +114,11 @@ public class FrmEscritor extends javax.swing.JFrame {
         TblEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblEscritorMouseClicked(evt);
+            }
+        });
+        TblEscritor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblEscritorKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(TblEscritor);
@@ -269,7 +275,7 @@ public class FrmEscritor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked
-       isSelect = true;
+        isSelect = true;
         try {
             txtIdEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 0).toString());
             txtCodigoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 1).toString());
@@ -280,6 +286,23 @@ public class FrmEscritor extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_TblEscritorMouseClicked
+
+    private void TblEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEscritorKeyReleased
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblEscritor.getSelectedRow();
+
+            try {
+                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
+                this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
+                this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
+                this.txtPaisEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 4).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblEscritorKeyReleased
 
     /**
      * @param args the command line arguments
@@ -315,8 +338,8 @@ public class FrmEscritor extends javax.swing.JFrame {
             }
         });
     }
-    
-     public boolean isSelect = false;
+
+    public boolean isSelect = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
