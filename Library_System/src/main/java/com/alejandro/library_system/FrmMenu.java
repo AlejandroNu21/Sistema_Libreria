@@ -59,8 +59,18 @@ public class FrmMenu extends javax.swing.JFrame {
         });
 
         btnAgregarLibro.setText("Agregar Libro");
+        btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarLibroActionPerformed(evt);
+            }
+        });
 
         btnCompra.setText("Compra");
+        btnCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompraActionPerformed(evt);
+            }
+        });
 
         btnEditoriales.setText("Editoriales");
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +87,11 @@ public class FrmMenu extends javax.swing.JFrame {
         });
 
         btnVentas.setText("Ventas");
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentasActionPerformed(evt);
+            }
+        });
 
         btnLector.setText("Lector");
         btnLector.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +101,11 @@ public class FrmMenu extends javax.swing.JFrame {
         });
 
         btnPrestamo.setText("Prestamo");
+        btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrestamoActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -101,6 +121,11 @@ public class FrmMenu extends javax.swing.JFrame {
         );
 
         btnEscritor.setText("Escritor");
+        btnEscritor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEscritorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,6 +214,36 @@ public class FrmMenu extends javax.swing.JFrame {
          AbrirLector.setVisible(true);
          this.setVisible(false);
     }//GEN-LAST:event_btnLectorActionPerformed
+
+    private void btnEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEscritorActionPerformed
+        FrmEscritor AbrirEscritor = new FrmEscritor();
+         AbrirEscritor.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_btnEscritorActionPerformed
+
+    private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
+        FrmLibro AbrirFrm = new FrmLibro();
+        AbrirFrm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAgregarLibroActionPerformed
+
+    private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
+       FrmCompra AbrirFrm = new FrmCompra();
+       AbrirFrm.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnCompraActionPerformed
+
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
+        FrmVentas AbrirVentas = new FrmVentas();
+        AbrirVentas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVentasActionPerformed
+
+    private void btnPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamoActionPerformed
+        FrmPrestamo AbrirFrmPrestamo = new FrmPrestamo();
+        AbrirFrmPrestamo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnPrestamoActionPerformed
 
     /**
      * @param args the command line arguments

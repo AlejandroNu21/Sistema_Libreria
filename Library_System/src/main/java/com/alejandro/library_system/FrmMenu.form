@@ -134,11 +134,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Libro"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarLibroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCompra">
           <Properties>
             <Property name="text" type="java.lang.String" value="Compra"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCompraActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEditoriales">
           <Properties>
@@ -160,6 +166,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVentasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLector">
           <Properties>
@@ -173,6 +182,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Prestamo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrestamoActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
@@ -198,6 +210,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Escritor"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEscritorActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
