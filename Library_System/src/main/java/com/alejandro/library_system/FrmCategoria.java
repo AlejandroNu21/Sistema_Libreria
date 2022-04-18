@@ -5,8 +5,16 @@
 package com.alejandro.library_system;
 
 import Beans.Categoria_beans;
+import Beans.Cliente;
+import Beans.Subgenero_beans;
 import Entidades.Categoria;
+import Entidades.clientes;
+import Entidades.subGeneroLiterario;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +28,8 @@ public class FrmCategoria extends javax.swing.JFrame {
     public FrmCategoria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        carga();
+        txtCategoria.requestFocus();
     }
 
     /**
@@ -36,6 +46,10 @@ public class FrmCategoria extends javax.swing.JFrame {
         txtCategoria = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtIdCategoria = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TblCategoria = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -69,65 +83,128 @@ public class FrmCategoria extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        jLabel3.setText("Id");
+
+        TblCategoria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TblCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblCategoriaMouseClicked(evt);
+            }
+        });
+        TblCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblCategoriaKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TblCategoria);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(txtIdCategoria))
+                .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel2)))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(38, 38, 38)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(43, 43, 43))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCancelar)
+                                .addGap(40, 40, 40)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(63, 63, 63)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(jLabel3)
+                    .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+      public void carga() {
+        Limpiar();
+        String titulos[] = {"Id", "Categoria"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Categoria_beans es = new Categoria_beans();
+        ArrayList<Categoria> listar = es.ListaCat();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Categoria estBucle = (Categoria) iterador.next();
+            fila[0] = estBucle.getIdCategoria();
+            fila[1] = estBucle.getCategoria();
+            df.addRow(fila);
+        }
+        TblCategoria.setModel(df);
+    }
+
+    
+    
+    
     public void Limpiar() {
         txtCategoria.setText("");
     }
 
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+       Categoria es = new Categoria();
+        Categoria_beans esDAO = new Categoria_beans();
 
-        if (txtCategoria.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo vacio");
-        } else {
-            Categoria cat = new Categoria();
-            Categoria_beans catDAO = new Categoria_beans();
-
-            cat.setCategoria(txtCategoria.getText());
-            catDAO.AgregarCategoria(cat);
-            Limpiar();
-            txtCategoria.requestFocus();
-        }
+        es.setCategoria(txtCategoria.getText());
+        esDAO.AddCategoria(es);
+        carga();
+        Limpiar();
+        txtCategoria.requestFocus();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -135,6 +212,30 @@ public class FrmCategoria extends javax.swing.JFrame {
         regresar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void TblCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblCategoriaMouseClicked
+         isSelect = true;
+        try {
+            txtIdCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 0).toString());
+            txtCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_TblCategoriaMouseClicked
+
+    private void TblCategoriaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblCategoriaKeyReleased
+         if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblCategoria.getSelectedRow();
+
+            try {
+                this.txtIdCategoria.setText(TblCategoria.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCategoria.setText(TblCategoria.getValueAt(filaSeleccionada, 1).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblCategoriaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -170,12 +271,18 @@ public class FrmCategoria extends javax.swing.JFrame {
             }
         });
     }
+    
+    public boolean isSelect = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TblCategoria;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCategoria;
+    private javax.swing.JTextField txtIdCategoria;
     // End of variables declaration//GEN-END:variables
 }

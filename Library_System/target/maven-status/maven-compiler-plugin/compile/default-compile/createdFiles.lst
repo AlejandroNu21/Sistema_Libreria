@@ -13,6 +13,7 @@ com\alejandro\library_system\FrmLogin$4.class
 com\alejandro\library_system\FrmMenu$2.class
 Beans\Lectores.class
 Services\ISubgenero.class
+com\alejandro\library_system\FrmCategoria$4.class
 com\alejandro\library_system\FrmLector.class
 com\alejandro\library_system\FrmEditorial$1.class
 com\alejandro\library_system\FrmLector$3.class

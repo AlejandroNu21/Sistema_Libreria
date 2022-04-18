@@ -28,4 +28,8 @@ public class Categoria {
     public void setCategoria(String Categoria) {
         this.Categoria = Categoria;
     }
+
+    public void getCategoria(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

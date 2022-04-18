@@ -5,6 +5,8 @@
 package Beans;
 
 import Entidades.Categoria;
+import Entidades.Editorial;
+import Entidades.subGeneroLiterario;
 import Services.ICategoria;
 import com.alejandro.BD.ConexionAMYSQL;
 import java.sql.*;
@@ -15,86 +17,49 @@ import javax.swing.JOptionPane;
  *
  * @author veget
  */
-public class Categoria_beans implements ICategoria {
+public class Categoria_beans {
 
     ConexionAMYSQL con = new ConexionAMYSQL();
     Connection conexion = con.getConecction();
 
-    @Override
-    public ArrayList<Categoria> MostrarCategoria() {
-        ArrayList<Categoria> categoria = new ArrayList<Categoria>();
+    //SELECT
+    public ArrayList<Categoria> ListaCat() {
+        ArrayList<Categoria> lista = null;
+        try {
+            lista = new ArrayList<Categoria>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_S_CATEGORIA}");
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Categoria ct = new Categoria();
+                ct.setIdCategoria(resultado.getInt("idCategoria"));
+                ct.setCategoria(resultado.getString("Categoria"));
+                lista.add(ct);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error man" + e);
+        }
+
+        return lista;
+    }
+
+    //ADD
+    public void AddCategoria(Categoria cat) {
 
         try {
-            CallableStatement cbt = conexion.prepareCall("select * from Categoria");
-            ResultSet rst = cbt.executeQuery();
+            CallableStatement cb = conexion.prepareCall("{call SP_I_CATEGORIA(?)}");
+            cb.setString("PCategoria", cat.getCategoria());
+            cb.execute();
 
-            while (rst.next()) {
-                Categoria ctg = new Categoria();
-                ctg.setIdCategoria(rst.getInt("idCategoria"));
-                ctg.setCategoria(rst.getString("Categoria"));
-                categoria.add(ctg);
-            }
-        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Categoria Agregado");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
         }
 
-        return categoria;
-    }
-
-    @Override
-    public void AgregarCategoria(Categoria categoria) {
-      try {
-            CallableStatement statement = conexion.prepareCall("SP_I_CATEGORIA(?)");
-            statement.setString("Pcategoria", categoria.getCategoria()); 
-
-            statement.execute();
-            conexion.close();
-            JOptionPane.showMessageDialog(null, "Datos almacenados");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar datos" + e);
-
-        }  
-        
-
-    }
-
-    @Override
-    public void ElminarCategoria(Categoria categoria) 
-    {
-        
-        try 
-        {
-            CallableStatement statement = conexion.prepareCall("SP_D_CATEGORIA(?)");
-            statement.setInt("PidCategoria",  categoria.getIdCategoria());
-            statement.execute();
-            JOptionPane.showMessageDialog(null, "Datos eliminados");
-            conexion.close();
-        } catch (Exception e) 
-        {
-            JOptionPane.showMessageDialog(null, "Error al eliminar datos " + e);
-
-        }
     }
     
-
-    @Override
-    public void ActualizarCategoria(Categoria categoria) 
-    {
-        try 
-        {
-            CallableStatement statement = conexion.prepareCall("SP_U_CATEGORIA(?,?)");
-            statement.setString("Pcategoria", categoria.getCategoria());
-            statement.setInt("PidCategoria", categoria.getIdCategoria());
- 
-            statement.execute();
-            conexion.close();
-            JOptionPane.showMessageDialog(null, "Datos actualizados");
-        } catch (Exception e) 
-        {
-            JOptionPane.showMessageDialog(null, "Error al actualizar");
-
-        }
-
-    }
+  
 }
-
-
