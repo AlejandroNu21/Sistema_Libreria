@@ -9,6 +9,7 @@ import Entidades.subGeneroLiterario;
 import javax.swing.JOptionPane;
 import Beans.Subgenero_beans;
 import Entidades.Escritor;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
@@ -95,6 +96,11 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
                 TblSubGeneroMouseClicked(evt);
             }
         });
+        TblSubGenero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblSubGeneroKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(TblSubGenero);
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -157,7 +163,7 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     public void carga() {
+    public void carga() {
         Limpiar();
         String titulos[] = {"Id", "Sub Genero Literario"};
         //Ejemplosdearreglos
@@ -179,16 +185,14 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         }
         TblSubGenero.setModel(df);
     }
-    
-    
-    
-      public void Limpiar() {
+
+    public void Limpiar() {
         txtSubGeneroLiterario.setText("");
     }
-    
-    
+
+
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-      
+
         if (txtSubGeneroLiterario.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo vacio");
         } else {
@@ -203,7 +207,7 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-      FrmMenu regresar = new FrmMenu();
+        FrmMenu regresar = new FrmMenu();
         regresar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -217,6 +221,20 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_TblSubGeneroMouseClicked
+
+    private void TblSubGeneroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblSubGeneroKeyReleased
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblSubGenero.getSelectedRow();
+
+            try {
+                this.txtIdSubGenero.setText(TblSubGenero.getValueAt(filaSeleccionada, 0).toString());
+                this.txtSubGeneroLiterario.setText(TblSubGenero.getValueAt(filaSeleccionada, 1).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblSubGeneroKeyReleased
 
     /**
      * @param args the command line arguments
@@ -253,8 +271,8 @@ public class FrmSubGeneroLiterario extends javax.swing.JFrame {
         });
     }
 
-       public boolean isSelect = false;
-    
+    public boolean isSelect = false;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblSubGenero;
     private javax.swing.JButton btnAgregar;

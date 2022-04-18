@@ -110,30 +110,30 @@ public class FrmCategoria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-      public void Limpiar() {
+    public void Limpiar() {
         txtCategoria.setText("");
     }
-    
-    
+
+
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
-        if(txtCategoria.getText().equals("")){
-        JOptionPane.showMessageDialog(null, "Campo vacio");
-        }else{
-         Categoria cat = new Categoria();
-        Categoria_beans catDAO = new Categoria_beans();
-        
-        cat.setCategoria(txtCategoria.getText());
-        catDAO.AgregarCategoria(cat);
-        Limpiar();
-        txtCategoria.requestFocus();}
+
+        if (txtCategoria.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo vacio");
+        } else {
+            Categoria cat = new Categoria();
+            Categoria_beans catDAO = new Categoria_beans();
+
+            cat.setCategoria(txtCategoria.getText());
+            catDAO.AgregarCategoria(cat);
+            Limpiar();
+            txtCategoria.requestFocus();
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       FrmMenu regresar = new FrmMenu();
+        FrmMenu regresar = new FrmMenu();
         regresar.setVisible(true);
-        this.setVisible(false); 
+        this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
