@@ -85,5 +85,19 @@ public class Editorials {
         }
     
     }
+    
+     public void DeleteEditorial(Editorial edi) {
+
+        try {
+            CallableStatement cb = conexion.prepareCall("delete from editorial where id=?");
+            cb.setInt(1, edi.getIdEditorial());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Editorial eliminado correctamente");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    }
 
 }

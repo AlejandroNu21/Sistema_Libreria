@@ -16,6 +16,10 @@ public class Editorial {
     private String Direccion_Editorial;
     private String Telefono_Editorial;
 
+    public Editorial(int Id) {
+        this.idEditorial = Id;
+    }
+
     public int getIdEditorial() {
         return idEditorial;
     }

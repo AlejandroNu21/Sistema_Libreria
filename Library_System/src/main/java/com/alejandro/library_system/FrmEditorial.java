@@ -352,7 +352,27 @@ public class FrmEditorial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmBorrarActionPerformed
-        // TODO add your handling code here:
+        try{
+            if(isSelect==true){
+        Editorials ediDao = new Editorials();
+        
+        int Id = Integer.parseInt(txtIdEditorial.getText());
+            
+            int row = TblEditorial.getSelectedRow();
+            TblEditorial.setValueAt(Id, row, 0);
+            
+            Editorial editor = new Editorial(Id);
+            ediDao.DeleteEditorial(editor);
+            carga();
+            
+            isSelect = false;
+            }else{
+            JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+        }
     }//GEN-LAST:event_btmBorrarActionPerformed
 
     private void TblEditorialKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEditorialKeyReleased

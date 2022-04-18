@@ -14,18 +14,36 @@ public class Lector {
     private String CodigoLector;
     private String Nombre_Lector;
     private String Apellido_Lector;
-
-    public String getEdad() {
-        return Edad;
-    }
-
-    public void setEdad(String Edad) {
-        this.Edad = Edad;
-    }
     private String Edad;
     private String Direccion;
     private String Telefono;
+    
+    public Lector(int Id) {
+        this.idLector = Id;
+    }
 
+    public Lector(int idLector, String CodigoLector, String Nombre_Lector, String Apellido_Lector, String Edad, String Direccion, String Telefono) {
+        this.idLector = idLector;
+        this.CodigoLector = CodigoLector;
+        this.Nombre_Lector = Nombre_Lector;
+        this.Apellido_Lector = Apellido_Lector;
+        this.Edad = Edad;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+    }
+
+    public Lector(String CodigoLector, String Nombre_Lector, String Apellido_Lector, String Edad, String Direccion, String Telefono) {
+        this.CodigoLector = CodigoLector;
+        this.Nombre_Lector = Nombre_Lector;
+        this.Apellido_Lector = Apellido_Lector;
+        this.Edad = Edad;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+    }
+
+    public Lector() {
+    }
+    
     public int getIdLector() {
         return idLector;
     }
@@ -58,13 +76,13 @@ public class Lector {
         this.Apellido_Lector = Apellido_Lector;
     }
 
-//    public int getEdad() {
-//        return Edad;
-//    }
-//
-//    public void setEdad(int Edad) {
-//        this.Edad = Edad;
-//    }
+    public String getEdad() {
+        return Edad;
+    }
+
+    public void setEdad(String Edad) {
+        this.Edad = Edad;
+    }
 
     public String getDireccion() {
         return Direccion;

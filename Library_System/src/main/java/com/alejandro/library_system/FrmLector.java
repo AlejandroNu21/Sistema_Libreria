@@ -8,7 +8,6 @@ import Beans.Escritores;
 import Beans.Lectores;
 import Entidades.Escritor;
 import Entidades.Lector;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -58,6 +57,7 @@ public class FrmLector extends javax.swing.JFrame {
         txtIdLector = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblLector = new javax.swing.JTable();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,12 +136,17 @@ public class FrmLector extends javax.swing.JFrame {
                 TblLectorMouseClicked(evt);
             }
         });
-        TblLector.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TblLectorKeyReleased(evt);
+        jScrollPane1.setViewportView(TblLector);
+
+        btnActualizar.setBackground(java.awt.Color.blue);
+        btnActualizar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(254, 254, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(TblLector);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,7 +199,9 @@ public class FrmLector extends javax.swing.JFrame {
                                     .addComponent(txtCodigoLector, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                                     .addComponent(txtIdLector))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -235,12 +242,13 @@ public class FrmLector extends javax.swing.JFrame {
                                 .addGap(67, 67, 67)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                        .addGap(86, 86, 86))))
         );
 
         pack();
@@ -330,24 +338,41 @@ public class FrmLector extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TblLectorMouseClicked
 
-    private void TblLectorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblLectorKeyReleased
-        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-            int filaSeleccionada = this.TblLector.getSelectedRow();
-
-            try {
-                this.txtIdLector.setText(TblLector.getValueAt(filaSeleccionada, 0).toString());
-                this.txtCodigoLector.setText(TblLector.getValueAt(filaSeleccionada, 1).toString());
-                this.txtNombreLector.setText(TblLector.getValueAt(filaSeleccionada, 2).toString());
-                this.txtApellidoLector.setText(TblLector.getValueAt(filaSeleccionada, 3).toString());
-                this.txtEdadLector.setText(TblLector.getValueAt(filaSeleccionada, 4).toString());
-                 this.txtDireccionLector.setText(TblLector.getValueAt(filaSeleccionada, 5).toString());
-                this.txtTelefonoLector.setText(TblLector.getValueAt(filaSeleccionada, 6).toString());
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+       try{
+            if(isSelect==true){
+                
+            Lectores editLect = new Lectores();
+            int idLector= Id;
+            
+            String CodigoLector = txtCodigoLector.getText();
+             String Nombre_Lector = txtNombreLector.getText();
+             String Apellido_Lector = txtApellidoLector.getText();
+             String Edad=txtEdadLector.getText();
+              String Direccion = txtDireccionLector.getText();
+               String Telefono = txtTelefonoLector.getText();
+            
+            int row = TblLector.getSelectedRow();
+            
+            TblLector.setValueAt(CodigoLector, row, 1);
+            TblLector.setValueAt(Nombre_Lector, row, 2);
+            TblLector.setValueAt(Apellido_Lector, row, 3);
+            TblLector.setValueAt(Edad, row, 4);
+            TblLector.setValueAt(Direccion, row, 5);
+            TblLector.setValueAt(Telefono, row, 6);
+            
+            Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
+            editLect.UpdateLector(lct);
+            carga();
+            isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
             }
-
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
+            
         }
-    }//GEN-LAST:event_TblLectorKeyReleased
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,9 +410,11 @@ public class FrmLector extends javax.swing.JFrame {
     }
     
       public boolean isSelect = false;
+      int Id = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblLector;
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
