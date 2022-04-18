@@ -9,16 +9,17 @@ package Entidades;
  * @author Kevin
  */
 public class generoLiterario {
-    private int idGeneroLiterario;
 
-    public int getIdGeneroLiterario() {
-        return idGeneroLiterario;
-    }
-
-    public void setIdGeneroLiterario(int idGeneroLiterario) {
-        this.idGeneroLiterario = idGeneroLiterario;
-    }
+    private int idGenero_Literario;
     private String Genero_Literario;
+
+    public int getIdGenero_Literario() {
+        return idGenero_Literario;
+    }
+
+    public void setIdGenero_Literario(int idGenero_Literario) {
+        this.idGenero_Literario = idGenero_Literario;
+    }
 
     public String getGenero_Literario() {
         return Genero_Literario;
@@ -27,4 +28,5 @@ public class generoLiterario {
     public void setGenero_Literario(String Genero_Literario) {
         this.Genero_Literario = Genero_Literario;
     }
+
 }

@@ -4,6 +4,18 @@
  */
 package com.alejandro.library_system;
 
+import Beans.Editorials;
+import Beans.GeneroLiterario_beans;
+import Beans.Subgenero_beans;
+import Entidades.Editorial;
+import Entidades.generoLiterario;
+import Entidades.subGeneroLiterario;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kevin
@@ -16,6 +28,9 @@ public class FrmGeneroLiterario extends javax.swing.JFrame {
     public FrmGeneroLiterario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        carga();
+        Limpiar();
+        txtGeneroLiterario.requestFocus();
     }
 
     /**
@@ -32,6 +47,10 @@ public class FrmGeneroLiterario extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TblGeneroLiterario = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        txtIdGenero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,11 +60,21 @@ public class FrmGeneroLiterario extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel1.setText("G. Literario");
@@ -54,46 +83,160 @@ public class FrmGeneroLiterario extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Insertar nuevo genero literario ");
 
+        TblGeneroLiterario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TblGeneroLiterario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblGeneroLiterarioMouseClicked(evt);
+            }
+        });
+        TblGeneroLiterario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblGeneroLiterarioKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TblGeneroLiterario);
+
+        jLabel3.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        jLabel3.setText("Id");
+
+        txtIdGenero.setEditable(false);
+        txtIdGenero.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(59, 59, 59)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCancelar)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(txtIdGenero))
+                        .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(jLabel3)
+                    .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void carga() {
+        Limpiar();
+        String titulos[] = {"Id", "Genero Literario"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        GeneroLiterario_beans es = new GeneroLiterario_beans();
+        ArrayList<generoLiterario> listar = es.ListaGenero();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            generoLiterario estBucle = (generoLiterario) iterador.next();
+            fila[0] = estBucle.getIdGenero_Literario();
+            fila[1] = estBucle.getGenero_Literario();
+            df.addRow(fila);
+        }
+        TblGeneroLiterario.setModel(df);
+    }
+
+    public void Limpiar() {
+        txtGeneroLiterario.setText("");
+    }
+
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+       if (txtGeneroLiterario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            txtGeneroLiterario.requestFocus();
+        } else {
+            generoLiterario es = new generoLiterario();
+            GeneroLiterario_beans esDAO = new GeneroLiterario_beans();
+
+            es.setGenero_Literario(txtGeneroLiterario.getText());
+
+            esDAO.AddGenero(es);
+            Limpiar();
+            carga();
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void TblGeneroLiterarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblGeneroLiterarioMouseClicked
+        isSelect = true;
+        try {
+            txtIdGenero.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 0).toString());
+            txtGeneroLiterario.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_TblGeneroLiterarioMouseClicked
+
+    private void TblGeneroLiterarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblGeneroLiterarioKeyReleased
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblGeneroLiterario.getSelectedRow();
+
+            try {
+                this.txtIdGenero.setText(TblGeneroLiterario.getValueAt(filaSeleccionada, 0).toString());
+                this.txtGeneroLiterario.setText(TblGeneroLiterario.getValueAt(filaSeleccionada, 1).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblGeneroLiterarioKeyReleased
 
     /**
      * @param args the command line arguments
@@ -130,11 +273,17 @@ public class FrmGeneroLiterario extends javax.swing.JFrame {
         });
     }
 
+    public boolean isSelect = false;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TblGeneroLiterario;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtGeneroLiterario;
+    private javax.swing.JTextField txtIdGenero;
     // End of variables declaration//GEN-END:variables
 }
