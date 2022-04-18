@@ -71,4 +71,24 @@ public class Lectores {
         }
 
     }
+     public void UpdateLector(Lector lect) {
+     try {
+            CallableStatement cb = conexion.prepareCall("{call SP_U_LECTOR(?,?,?,?,?,?,?)}");
+            cb.setInt(7,lect.getIdLector());
+            cb.setString(1, lect.getCodigoLector());
+            cb.setString(2, lect.getNombre_Lector());
+            cb.setString(3, lect.getApellido_Lector());
+            cb.setString(4, lect.getEdad());
+            cb.setString(5,lect.getDireccion());
+            cb.setString(6,lect.getTelefono());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Lector Actualizado","Exito",JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    
+    }
+    
 }
