@@ -16,6 +16,36 @@ public class Escritor {
     private String Apellido_Escritor;
     private String Pais_Escritor;
 
+    public Escritor() {
+    }
+    public Escritor(int Id) {
+        this.idEscritor = Id;
+    }
+    
+    
+    
+
+    public Escritor(String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor) {
+        this.Codigo_Escritor = Codigo_Escritor;
+        this.Nombre_Escritor = Nombre_Escritor;
+        this.Apellido_Escritor = Apellido_Escritor;
+        this.Pais_Escritor = Pais_Escritor;
+    }
+
+    
+    
+    
+    public Escritor(int idEscritor, String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor) {
+        this.idEscritor = idEscritor;
+        this.Codigo_Escritor = Codigo_Escritor;
+        this.Nombre_Escritor = Nombre_Escritor;
+        this.Apellido_Escritor = Apellido_Escritor;
+        this.Pais_Escritor = Pais_Escritor;
+    }
+    
+    
+    
+
     public int getIdEscritor() {
         return idEscritor;
     }

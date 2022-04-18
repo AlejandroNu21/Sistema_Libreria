@@ -363,6 +363,7 @@ public class FrmLector extends javax.swing.JFrame {
             
             Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
             editLect.UpdateLector(lct);
+            Limpiar();
             carga();
             isSelect = false;
             }else{

@@ -21,6 +21,10 @@ public class Lector {
     public Lector(int Id) {
         this.idLector = Id;
     }
+    
+        public int getIdLector() {
+        return idLector;
+    }
 
     public Lector(int idLector, String CodigoLector, String Nombre_Lector, String Apellido_Lector, String Edad, String Direccion, String Telefono) {
         this.idLector = idLector;
@@ -44,9 +48,7 @@ public class Lector {
     public Lector() {
     }
     
-    public int getIdLector() {
-        return idLector;
-    }
+
 
     public void setIdLector(int idLector) {
         this.idLector = idLector;

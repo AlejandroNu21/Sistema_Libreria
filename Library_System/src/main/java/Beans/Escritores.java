@@ -67,4 +67,25 @@ public class Escritores {
         }
 
     }
+    
+    public void UpdateEscritor(Escritor edi) {
+
+        try {
+            CallableStatement cb = conexion.prepareCall("{call SP_U_ESCRITORES(?,?,?,?,?)}");
+            cb.setInt(5, edi.getIdEscritor());
+            cb.setString(1, edi.getCodigo_Escritor());
+            cb.setString(2, edi.getNombre_Escritor());
+            cb.setString(3, edi.getApellido_Escritor());
+            cb.setString(4, edi.getPais_Escritor());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Escritor Actualizado");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+
+    }
+    
+    
 }
