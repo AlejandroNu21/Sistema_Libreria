@@ -63,25 +63,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnPrestamo" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnAgregarLibro" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnVentas" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnLector" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnEditoriales" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnClientes" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btnCompra" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnPrestamo" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnAgregarLibro" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnVentas" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnLector" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnEditoriales" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnClientes" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnCompra" alignment="0" pref="186" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="btnEscritor" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="625" max="32767" attributes="0"/>
+                  <EmptySpace pref="504" max="32767" attributes="0"/>
+                  <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
-              <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -102,9 +102,18 @@
                   <Component id="btnLector" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnPrestamo" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
-                  <Component id="BtnCerrarSesion" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                          <Component id="BtnCerrarSesion" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnEscritor" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -185,6 +194,11 @@
             </DimensionLayout>
           </Layout>
         </Container>
+        <Component class="javax.swing.JButton" name="btnEscritor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Escritor"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
