@@ -8,6 +8,7 @@ import Beans.Escritores;
 import Beans.Lectores;
 import Entidades.Escritor;
 import Entidades.Lector;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -133,6 +134,11 @@ public class FrmLector extends javax.swing.JFrame {
         TblLector.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblLectorMouseClicked(evt);
+            }
+        });
+        TblLector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblLectorKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(TblLector);
@@ -323,6 +329,25 @@ public class FrmLector extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_TblLectorMouseClicked
+
+    private void TblLectorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblLectorKeyReleased
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblLector.getSelectedRow();
+
+            try {
+                this.txtIdLector.setText(TblLector.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCodigoLector.setText(TblLector.getValueAt(filaSeleccionada, 1).toString());
+                this.txtNombreLector.setText(TblLector.getValueAt(filaSeleccionada, 2).toString());
+                this.txtApellidoLector.setText(TblLector.getValueAt(filaSeleccionada, 3).toString());
+                this.txtEdadLector.setText(TblLector.getValueAt(filaSeleccionada, 4).toString());
+                 this.txtDireccionLector.setText(TblLector.getValueAt(filaSeleccionada, 5).toString());
+                this.txtTelefonoLector.setText(TblLector.getValueAt(filaSeleccionada, 6).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_TblLectorKeyReleased
 
     /**
      * @param args the command line arguments
