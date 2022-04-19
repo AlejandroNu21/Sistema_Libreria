@@ -343,7 +343,7 @@ public class FrmLector extends javax.swing.JFrame {
             if(isSelect==true){
                 
             Lectores editLect = new Lectores();
-            int idLector= Id;
+            int idLector= Integer.parseInt(txtIdLector.getText());
             
             String CodigoLector = txtCodigoLector.getText();
              String Nombre_Lector = txtNombreLector.getText();

@@ -18,6 +18,7 @@ public class Escritor {
 
     public Escritor() {
     }
+    
     public Escritor(int Id) {
         this.idEscritor = Id;
     }

@@ -357,10 +357,13 @@ public class FrmEscritor extends javax.swing.JFrame {
 
     private void TblEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEscritorKeyReleased
         if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-            int filaSeleccionada = this.TblEscritor.getSelectedRow();
+            
 
+            isSelect=true;
             try {
-                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                int filaSeleccionada = this.TblEscritor.getSelectedRow();
+                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada,0).toString());
+                //this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
                 this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
                 this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
                 this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
@@ -377,7 +380,8 @@ public class FrmEscritor extends javax.swing.JFrame {
             if (isSelect == true) {
 
                 Escritores editEscr = new Escritores();
-                int idEscritor = Id;
+                int idEscritor = Integer.parseInt(txtIdEscritor.getText());
+                
                 String Codigo_Escritor = txtCodigoEscritor.getText();
                 String Nombre_Escritor = txtNombreEscritor.getText();
                 String Apellido_Escritor = txtApellidoEscritor.getText();
@@ -390,8 +394,8 @@ public class FrmEscritor extends javax.swing.JFrame {
                 TblEscritor.setValueAt(Apellido_Escritor, row, 3);
                 TblEscritor.setValueAt(Pais_Escritor, row, 4);
 
-                Escritor edi = new Escritor(idEscritor, Codigo_Escritor, Nombre_Escritor, Apellido_Escritor, Pais_Escritor);
-                editEscr.UpdateEscritor(edi);
+                Escritor escritor = new Escritor(idEscritor, Codigo_Escritor, Nombre_Escritor, Apellido_Escritor, Pais_Escritor);
+                editEscr.UpdateEscritor(escritor);
                 carga();
                 isSelect = false;
             } else {
@@ -465,7 +469,7 @@ public class FrmEscritor extends javax.swing.JFrame {
     }
 
     public boolean isSelect = false;
-int Id =0;
+    int Id =0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
     private javax.swing.JButton btnAgregar;

@@ -68,18 +68,19 @@ public class Escritores {
 
     }
     
-    public void UpdateEscritor(Escritor edi) {
+    public void UpdateEscritor(Escritor escritor) {
 
         try {
-            CallableStatement cb = conexion.prepareCall("{call SP_U_ESCRITORES(?,?,?,?,?)}");
-            cb.setInt(5, edi.getIdEscritor());
-            cb.setString(1, edi.getCodigo_Escritor());
-            cb.setString(2, edi.getNombre_Escritor());
-            cb.setString(3, edi.getApellido_Escritor());
-            cb.setString(4, edi.getPais_Escritor());
+            CallableStatement cb = conexion.prepareCall("{call SP_U_ESCRITORES (?,?,?,?,?)};");
+            cb.setInt(5, escritor.getIdEscritor());
+            cb.setString(1, escritor.getCodigo_Escritor());
+            cb.setString(2, escritor.getNombre_Escritor());
+            cb.setString(3, escritor.getApellido_Escritor());
+            cb.setString(4, escritor.getPais_Escritor());
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Escritor Actualizado");
+            //System.out.println(escritor.getCodigo_Escritor()+escritor.getNombre_Escritor()+escritor.getApellido_Escritor()+escritor.getPais_Escritor()+escritor.getIdEscritor());
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
