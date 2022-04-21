@@ -31,6 +31,7 @@ public class FrmEscritor extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         carga();
+
     }
 
     /**
@@ -308,6 +309,7 @@ public class FrmEscritor extends javax.swing.JFrame {
     }
 
     public void Limpiar() {
+        txtIdEscritor.setText("");
         txtCodigoEscritor.setText("");
         txtNombreEscritor.setText("");
         txtApellidoEscritor.setText("");
@@ -357,13 +359,12 @@ public class FrmEscritor extends javax.swing.JFrame {
 
     private void TblEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEscritorKeyReleased
         if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-            
 
-            isSelect=true;
+            isSelect = true;
             try {
                 int filaSeleccionada = this.TblEscritor.getSelectedRow();
-                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada,0).toString());
-                //this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
                 this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
                 this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
                 this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
@@ -376,12 +377,12 @@ public class FrmEscritor extends javax.swing.JFrame {
     }//GEN-LAST:event_TblEscritorKeyReleased
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-          try {
+        try {
             if (isSelect == true) {
 
                 Escritores editEscr = new Escritores();
                 int idEscritor = Integer.parseInt(txtIdEscritor.getText());
-                
+
                 String Codigo_Escritor = txtCodigoEscritor.getText();
                 String Nombre_Escritor = txtNombreEscritor.getText();
                 String Apellido_Escritor = txtApellidoEscritor.getText();
@@ -398,6 +399,7 @@ public class FrmEscritor extends javax.swing.JFrame {
                 editEscr.UpdateEscritor(escritor);
                 carga();
                 isSelect = false;
+                 Limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
             }
@@ -408,29 +410,34 @@ public class FrmEscritor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       String Ruta = "";
-        
-     JFileChooser jFileChooser = new JFileChooser();
-     FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif" );
-     jFileChooser.setFileFilter(filtrado);
-     
-     
-     int respuesta = jFileChooser.showOpenDialog(this);
-     
-     if(respuesta == JFileChooser.APPROVE_OPTION){
-         Ruta =jFileChooser.getSelectedFile().getPath();
-         
-         Image mImagen = new ImageIcon(Ruta).getImage();
-         ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(),lblImagen.getHeight(), Image.SCALE_SMOOTH));
-         lblImagen.setIcon(mIcono);
-         
-     }
+        String Ruta = "";
+
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        jFileChooser.setFileFilter(filtrado);
+
+        int respuesta = jFileChooser.showOpenDialog(this);
+
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            Ruta = jFileChooser.getSelectedFile().getPath();
+
+            Image mImagen = new ImageIcon(Ruta).getImage();
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(mIcono);
+
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        FrmEscritor Es = new FrmEscritor();
         FrmDatosEscritor AbrirFrmDatos = new FrmDatosEscritor();
-         AbrirFrmDatos.setVisible(true);
-         this.setVisible(false);
+
+        AbrirFrmDatos.txtId.setText(txtIdEscritor.getText());
+
+        AbrirFrmDatos.setVisible(true);
+        this.setVisible(false);
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -469,7 +476,11 @@ public class FrmEscritor extends javax.swing.JFrame {
     }
 
     public boolean isSelect = false;
-    int Id =0;
+//<<<<<<< Updated upstream
+    int Id = 0;
+//=======
+//    int Id = 0;
+//>>>>>>> Stashed changes
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
     private javax.swing.JButton btnAgregar;

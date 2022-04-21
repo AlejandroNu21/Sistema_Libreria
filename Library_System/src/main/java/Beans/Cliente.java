@@ -18,18 +18,19 @@ import javax.swing.JOptionPane;
  * @author Vkaiido
  */
 public class Cliente {
-        ConexionAMYSQL con = new ConexionAMYSQL();
+
+    ConexionAMYSQL con = new ConexionAMYSQL();
     Connection conexion = con.getConecction();
- public ArrayList<clientes> ListaClientes(){
-  ArrayList<clientes> lista = null;
-   try {
+
+    public ArrayList<clientes> ListaClientes() {
+        ArrayList<clientes> lista = null;
+        try {
             lista = new ArrayList<clientes>();
 
             CallableStatement cb = conexion.prepareCall("{call SP_S_CLIENTES()}");
             ResultSet resultado = cb.executeQuery();
-            
-            
-            while (resultado.next()) {    
+
+            while (resultado.next()) {
                 clientes cl = new clientes();
                 cl.setCodigoCliente(resultado.getString("CodigoCliente"));
                 cl.setNombreCliente(resultado.getString("NombreCliente"));
@@ -37,20 +38,19 @@ public class Cliente {
                 cl.setEdad(resultado.getString("Edad"));
                 cl.setDireccion(resultado.getString("Direccion"));
                 cl.setTelefono(resultado.getString("Telefono"));
-                
-                
+
                 lista.add(cl);
             }
-            
+
         } catch (Exception e) {
-            System.out.println("Error man"+e);
+            System.out.println("Error man" + e);
         }
 
         return lista;
- }
- 
- public void AddCliente(clientes cl){
-    
+    }
+
+    public void AddCliente(clientes cl) {
+
         try {
             CallableStatement cb = conexion.prepareCall("{call SP_I_CLIENTES(?,?,?,?,?,?)}");
             cb.setString("PCodigoCliente", cl.getCodigoCliente());
@@ -60,13 +60,13 @@ public class Cliente {
             cb.setString("PDireccion", cl.getDireccion());
             cb.setString("PTelefono", cl.getTelefono());
             cb.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Persona Agregada");
-            
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "error"+ex);
+            JOptionPane.showMessageDialog(null, "error" + ex);
         }
-    
+
     }
-    
+
 }

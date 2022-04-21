@@ -39,7 +39,7 @@ public class FrmDatosLibro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtIdDatos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TblDatosLibro = new javax.swing.JTable();
         txtIdLibro = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
@@ -74,7 +74,7 @@ public class FrmDatosLibro extends javax.swing.JFrame {
 
         txtIdDatos.setEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TblDatosLibro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -85,7 +85,7 @@ public class FrmDatosLibro extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TblDatosLibro);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -251,6 +251,7 @@ public class FrmDatosLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TblDatosLibro;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -265,7 +266,6 @@ public class FrmDatosLibro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtAñoPublicacion;
