@@ -90,5 +90,20 @@ public class Lectores {
         }
     
     }
+     
+        public void DeleteLector (Lector lec){
+    
+    try{
+         CallableStatement cb = conexion.prepareCall("delete from lector as esc where esc.idLector=?;");
+            cb.setInt(1, lec.getIdLector());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Lector eliminado correctamente");
+            
+    
+    }catch (SQLException ex){
+        JOptionPane.showMessageDialog(null, "Error, " + ex);
+    }
+    }
     
 }

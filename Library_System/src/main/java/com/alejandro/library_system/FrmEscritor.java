@@ -168,6 +168,11 @@ public class FrmEscritor extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,7 +241,7 @@ public class FrmEscritor extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,6 +444,30 @@ public class FrmEscritor extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try{
+            if(isSelect==true){
+        Escritores escritorDao = new Escritores();
+        
+        int Id = Integer.parseInt(txtIdEscritor.getText());
+            
+            //int row = TblEditorial.getSelectedRow();
+            //TblEditorial.setValueAt(Id, row, 0);
+            
+            Escritor escritor = new Escritor(Id);
+            escritorDao.DeleteEscritor(escritor);
+            carga();
+            
+            isSelect = false;
+            }else{
+            JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

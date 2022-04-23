@@ -88,5 +88,21 @@ public class Escritores {
 
     }
     
+         public void DeleteEscritor (Escritor esc) {
+
+        try {
+            //System.out.println("Id=" +edi.getIdEditorial());
+            CallableStatement cb = conexion.prepareCall("delete from escritor as a where a.idEscritor=?;");
+            cb.setInt(1, esc.getIdEscritor());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Escritor eliminado correctamente");
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    }
+    
     
 }
