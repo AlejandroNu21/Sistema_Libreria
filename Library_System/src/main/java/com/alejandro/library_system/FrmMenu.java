@@ -210,7 +210,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectorActionPerformed
-         FrmLector AbrirLector = new FrmLector();
+         FrmLecctor AbrirLector = new FrmLecctor();
          AbrirLector.setVisible(true);
          this.setVisible(false);
     }//GEN-LAST:event_btnLectorActionPerformed

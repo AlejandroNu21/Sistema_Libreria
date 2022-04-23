@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.alejandro.library_system;
-
 import Beans.Escritores;
 import Beans.Lectores;
 import Entidades.Escritor;
@@ -12,22 +11,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author Kevin
+ * @author Vkaiido
  */
-public class FrmLector extends javax.swing.JFrame {
+public class FrmLecctor extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmLector
+     * Creates new form FrmLecctor
      */
-    public FrmLector() {
+    public FrmLecctor() {
         initComponents();
         this.setLocationRelativeTo(null);
         carga();
-
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,15 +36,8 @@ public class FrmLector extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtCodigoLector = new javax.swing.JTextField();
-        txtNombreLector = new javax.swing.JTextField();
-        txtEdadLector = new javax.swing.JTextField();
-        txtApellidoLector = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -55,38 +46,19 @@ public class FrmLector extends javax.swing.JFrame {
         txtDireccionLector = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtIdLector = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCodigoLector = new javax.swing.JTextField();
+        txtNombreLector = new javax.swing.JTextField();
+        txtEdadLector = new javax.swing.JTextField();
+        txtApellidoLector = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblLector = new javax.swing.JTable();
-        btnActualizar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel3.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre ");
-
-        jLabel4.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        jLabel4.setText("Apellido");
-
-        jLabel5.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        jLabel5.setText("Edad");
-
-        txtCodigoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-
-        txtNombreLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-
-        txtEdadLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-
-        txtApellidoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-
-        btnAgregar.setBackground(java.awt.Color.blue);
-        btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
 
         btnCancelar.setBackground(java.awt.Color.blue);
         btnCancelar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
@@ -95,6 +67,16 @@ public class FrmLector extends javax.swing.JFrame {
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setBackground(java.awt.Color.blue);
+        btnActualizar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(254, 254, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -120,6 +102,23 @@ public class FrmLector extends javax.swing.JFrame {
 
         txtIdLector.setEditable(false);
 
+        jLabel3.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel3.setText("Nombre ");
+
+        jLabel4.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel4.setText("Apellido");
+
+        jLabel5.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel5.setText("Edad");
+
+        txtCodigoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        txtNombreLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        txtEdadLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        txtApellidoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
         TblLector.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -136,15 +135,30 @@ public class FrmLector extends javax.swing.JFrame {
                 TblLectorMouseClicked(evt);
             }
         });
+        TblLector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TblLectorKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(TblLector);
 
-        btnActualizar.setBackground(java.awt.Color.blue);
-        btnActualizar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(254, 254, 255));
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(java.awt.Color.blue);
+        btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(java.awt.Color.blue);
+        btnEliminar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(254, 254, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -201,7 +215,10 @@ public class FrmLector extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,7 +232,7 @@ public class FrmLector extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCodigoLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
@@ -243,18 +260,19 @@ public class FrmLector extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(86, 86, 86))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void carga() {
+        public void carga() {
         Limpiar();
         String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
         //Ejemplosdearreglos
@@ -281,8 +299,9 @@ public class FrmLector extends javax.swing.JFrame {
         }
         TblLector.setModel(df);
     }
-
-    public void Limpiar() {
+    
+           public void Limpiar() {
+        txtIdLector.setText("");
         txtCodigoLector.setText("");
         txtNombreLector.setText("");
         txtApellidoLector.setText("");
@@ -291,13 +310,75 @@ public class FrmLector extends javax.swing.JFrame {
         txtTelefonoLector.setText("");
         txtCodigoLector.requestFocus();
     }
+    
+    
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        FrmMenu regresar = new FrmMenu();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        try{
+            if(isSelect==true){
+
+                Lectores editLect = new Lectores();
+                int idLector= Integer.parseInt(txtIdLector.getText());
+
+                String CodigoLector = txtCodigoLector.getText();
+                String Nombre_Lector = txtNombreLector.getText();
+                String Apellido_Lector = txtApellidoLector.getText();
+                String Edad=txtEdadLector.getText();
+                String Direccion = txtDireccionLector.getText();
+                String Telefono = txtTelefonoLector.getText();
+
+                int row = TblLector.getSelectedRow();
+
+                TblLector.setValueAt(CodigoLector, row, 1);
+                TblLector.setValueAt(Nombre_Lector, row, 2);
+                TblLector.setValueAt(Apellido_Lector, row, 3);
+                TblLector.setValueAt(Edad, row, 4);
+                TblLector.setValueAt(Direccion, row, 5);
+                TblLector.setValueAt(Telefono, row, 6);
+
+                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
+                editLect.UpdateLector(lct);
+                Limpiar();
+                carga();
+                isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void TblLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblLectorMouseClicked
+        isSelect = true;
+        try {
+            txtIdLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 0).toString());
+            txtCodigoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 1).toString());
+            txtNombreLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 2).toString());
+            txtApellidoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 3).toString());
+            txtEdadLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 4).toString());
+            txtDireccionLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 5).toString());
+            txtTelefonoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 6).toString());
+
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_TblLectorMouseClicked
+
+    private void TblLectorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblLectorKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TblLectorKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-         if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("") 
-                 || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("") 
-         || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals("")) 
-         {
+        if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
+            || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
+            || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals(""))
+        {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
             txtCodigoLector.requestFocus();
         } else {
@@ -314,66 +395,30 @@ public class FrmLector extends javax.swing.JFrame {
             esDAO.AddLector(es);
             Limpiar();
             carga();
-         }
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       FrmMenu regresar = new FrmMenu();
-        regresar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void TblLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblLectorMouseClicked
-         isSelect = true;
-        try {
-            txtIdLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 0).toString());
-            txtCodigoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 1).toString());
-            txtNombreLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 2).toString());
-            txtApellidoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 3).toString());
-            txtEdadLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 4).toString());
-            txtDireccionLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 5).toString());
-            txtTelefonoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 6).toString());
-
-        } catch (Exception ex) {
-        }
-    }//GEN-LAST:event_TblLectorMouseClicked
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       try{
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        
+ try{
             if(isSelect==true){
-                
-            Lectores editLect = new Lectores();
-            int idLector= Integer.parseInt(txtIdLector.getText());
+        Lectores lectorDao = new Lectores();
+        
+        int Id = Integer.parseInt(txtIdLector.getText());
             
-            String CodigoLector = txtCodigoLector.getText();
-             String Nombre_Lector = txtNombreLector.getText();
-             String Apellido_Lector = txtApellidoLector.getText();
-             String Edad=txtEdadLector.getText();
-              String Direccion = txtDireccionLector.getText();
-               String Telefono = txtTelefonoLector.getText();
-            
-            int row = TblLector.getSelectedRow();
-            
-            TblLector.setValueAt(CodigoLector, row, 1);
-            TblLector.setValueAt(Nombre_Lector, row, 2);
-            TblLector.setValueAt(Apellido_Lector, row, 3);
-            TblLector.setValueAt(Edad, row, 4);
-            TblLector.setValueAt(Direccion, row, 5);
-            TblLector.setValueAt(Telefono, row, 6);
-            
-            Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
-            editLect.UpdateLector(lct);
-            Limpiar();
+            Lector lector = new Lector(Id);
+            lectorDao.DeleteLector(lector);
             carga();
+            
             isSelect = false;
             }else{
-                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+            JOptionPane.showMessageDialog(null,"No ha seleccionado ningun lector","Aviso",1);
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
             
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
         }
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,24 +437,23 @@ public class FrmLector extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLecctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLecctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLecctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLecctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLector().setVisible(true);
+                new FrmLecctor().setVisible(true);
             }
         });
     }
-    
       public boolean isSelect = false;
       int Id = 0;
 
@@ -418,6 +462,7 @@ public class FrmLector extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
