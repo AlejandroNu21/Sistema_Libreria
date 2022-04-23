@@ -272,6 +272,7 @@ public class FrmEditorial extends javax.swing.JFrame {
     }
 
     public void Limpiar() {
+        txtIdEditorial.setText("");
         txtCodigoEditorial.setText("");
         txtNombreEditorial.setText("");
         txtDireccionEditorial.setText("");
@@ -311,6 +312,7 @@ public class FrmEditorial extends javax.swing.JFrame {
         try {
 
             Id = Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
+            txtIdEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
             txtCodigoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 1).toString());
             txtNombreEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 2).toString());
             txtDireccionEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 3).toString());
@@ -358,8 +360,8 @@ public class FrmEditorial extends javax.swing.JFrame {
         
         int Id = Integer.parseInt(txtIdEditorial.getText());
             
-            int row = TblEditorial.getSelectedRow();
-            TblEditorial.setValueAt(Id, row, 0);
+            //int row = TblEditorial.getSelectedRow();
+            //TblEditorial.setValueAt(Id, row, 0);
             
             Editorial editor = new Editorial(Id);
             ediDao.DeleteEditorial(editor);

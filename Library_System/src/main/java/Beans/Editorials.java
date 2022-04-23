@@ -89,11 +89,13 @@ public class Editorials {
      public void DeleteEditorial(Editorial edi) {
 
         try {
-            CallableStatement cb = conexion.prepareCall("delete from editorial where id=?");
+            //System.out.println("Id=" +edi.getIdEditorial());
+            CallableStatement cb = conexion.prepareCall("delete from editorial as a where a.idEditorial=?;");
             cb.setInt(1, edi.getIdEditorial());
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Editorial eliminado correctamente");
+            
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
