@@ -84,31 +84,31 @@ public class FrmLecctor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Insertar nuevo lector ");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setText("Codigo Lector ");
 
-        jLabel6.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel6.setText("Direccion");
 
         txtTelefonoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel7.setText("Telefono");
 
         txtDireccionLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel8.setText("Id");
 
         txtIdLector.setEditable(false);
 
-        jLabel3.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel3.setText("Nombre ");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel4.setText("Apellido");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel5.setText("Edad");
 
         txtCodigoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N

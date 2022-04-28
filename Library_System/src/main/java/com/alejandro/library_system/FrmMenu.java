@@ -53,6 +53,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnAgregarLibro.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnAgregarLibro.setText("Agregar Libro");
         btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +61,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnCompra.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnCompra.setText("Compra");
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +69,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnEditoriales.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnEditoriales.setText("Editoriales");
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +77,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnClientes.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnClientes.setText("Clientes");
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +85,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnVentas.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnVentas.setText("Ventas");
         btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +93,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnLector.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnLector.setText("Lector");
         btnLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +101,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnPrestamo.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnPrestamo.setText("Prestamo");
         btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +122,7 @@ public class FrmMenu extends javax.swing.JFrame {
             .addGap(0, 31, Short.MAX_VALUE)
         );
 
+        btnEscritor.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnEscritor.setText("Escritor");
         btnEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +144,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel3.setText("Regresar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

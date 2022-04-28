@@ -70,16 +70,16 @@ public class FrmEscritor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("Codigo Escritor ");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel3.setText("Nombre ");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel4.setText("Apellido");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel5.setText("Pais");
 
         txtCodigoEscritor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -91,7 +91,7 @@ public class FrmEscritor extends javax.swing.JFrame {
         txtApellidoEscritor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
         btnAgregar.setBackground(new java.awt.Color(0, 102, 102));
-        btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnAgregar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +104,8 @@ public class FrmEscritor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Insertar nuevo escritor ");
 
+        TblEscritor.setBackground(new java.awt.Color(155, 191, 191));
+        TblEscritor.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         TblEscritor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -115,6 +117,8 @@ public class FrmEscritor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TblEscritor.setGridColor(new java.awt.Color(0, 0, 0));
+        TblEscritor.setSelectionBackground(new java.awt.Color(161, 220, 173));
         TblEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblEscritorMouseClicked(evt);
@@ -127,13 +131,14 @@ public class FrmEscritor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TblEscritor);
 
-        jLabel6.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel6.setText("Id");
 
         txtIdEscritor.setEditable(false);
         txtIdEscritor.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
         btnUpdate.setBackground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +156,7 @@ public class FrmEscritor extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
