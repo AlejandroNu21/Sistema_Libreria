@@ -1,4 +1,4 @@
-C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmLector.java
+C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\DatosEscritores.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\Lector.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\Categoria_beans.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\formaDePago.java
@@ -6,6 +6,7 @@ C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Services\ISubgenero.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\Login.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmCompra.java
+C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmOpciones.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmGeneroLiterario.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\generoLiterario.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\DatosEscritor.java
@@ -28,6 +29,7 @@ C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\al
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\Categoria.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\Editorials.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\Lectores.java
+C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmLecctor.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Entidades\Editorial.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\Beans\Formadepago_beans.java
 C:\Users\Kevin\Desktop\Java\Sistema_Libreria\Library_System\src\main\java\com\alejandro\library_system\FrmFormadePago.java

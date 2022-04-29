@@ -3,14 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.alejandro.library_system;
+
 import Beans.Escritores;
 import Beans.Lectores;
 import Entidades.Escritor;
 import Entidades.Lector;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vkaiido
@@ -25,7 +28,6 @@ public class FrmLecctor extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         carga();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -272,7 +274,7 @@ public class FrmLecctor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        public void carga() {
+    public void carga() {
         Limpiar();
         String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
         //Ejemplosdearreglos
@@ -299,8 +301,8 @@ public class FrmLecctor extends javax.swing.JFrame {
         }
         TblLector.setModel(df);
     }
-    
-           public void Limpiar() {
+
+    public void Limpiar() {
         txtIdLector.setText("");
         txtCodigoLector.setText("");
         txtNombreLector.setText("");
@@ -310,8 +312,8 @@ public class FrmLecctor extends javax.swing.JFrame {
         txtTelefonoLector.setText("");
         txtCodigoLector.requestFocus();
     }
-    
-    
+
+
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         FrmMenu regresar = new FrmMenu();
         regresar.setVisible(true);
@@ -319,16 +321,16 @@ public class FrmLecctor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            if(isSelect==true){
+        try {
+            if (isSelect == true) {
 
                 Lectores editLect = new Lectores();
-                int idLector= Integer.parseInt(txtIdLector.getText());
+                int idLector = Integer.parseInt(txtIdLector.getText());
 
                 String CodigoLector = txtCodigoLector.getText();
                 String Nombre_Lector = txtNombreLector.getText();
                 String Apellido_Lector = txtApellidoLector.getText();
-                String Edad=txtEdadLector.getText();
+                String Edad = txtEdadLector.getText();
                 String Direccion = txtDireccionLector.getText();
                 String Telefono = txtTelefonoLector.getText();
 
@@ -341,16 +343,16 @@ public class FrmLecctor extends javax.swing.JFrame {
                 TblLector.setValueAt(Direccion, row, 5);
                 TblLector.setValueAt(Telefono, row, 6);
 
-                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
+                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector, Apellido_Lector, Edad, Direccion, Telefono);
                 editLect.UpdateLector(lct);
                 Limpiar();
                 carga();
                 isSelect = false;
-            }else{
-                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
@@ -371,14 +373,28 @@ public class FrmLecctor extends javax.swing.JFrame {
     }//GEN-LAST:event_TblLectorMouseClicked
 
     private void TblLectorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblLectorKeyReleased
-        // TODO add your handling code here:
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+            int filaSeleccionada = this.TblLector.getSelectedRow();
+
+            try {
+                this.txtIdLector.setText(TblLector.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCodigoLector.setText(TblLector.getValueAt(filaSeleccionada, 1).toString());
+                this.txtNombreLector.setText(TblLector.getValueAt(filaSeleccionada, 2).toString());
+                this.txtApellidoLector.setText(TblLector.getValueAt(filaSeleccionada, 3).toString());
+                this.txtEdadLector.setText(TblLector.getValueAt(filaSeleccionada, 4).toString());
+                this.txtDireccionLector.setText(TblLector.getValueAt(filaSeleccionada, 5).toString());
+                this.txtTelefonoLector.setText(TblLector.getValueAt(filaSeleccionada, 6).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
     }//GEN-LAST:event_TblLectorKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
-            || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
-            || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals(""))
-        {
+                || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
+                || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
             txtCodigoLector.requestFocus();
         } else {
@@ -399,24 +415,24 @@ public class FrmLecctor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
- try{
-            if(isSelect==true){
-        Lectores lectorDao = new Lectores();
-        
-        int Id = Integer.parseInt(txtIdLector.getText());
-            
-            Lector lector = new Lector(Id);
-            lectorDao.DeleteLector(lector);
-            carga();
-            
-            isSelect = false;
-            }else{
-            JOptionPane.showMessageDialog(null,"No ha seleccionado ningun lector","Aviso",1);
+
+        try {
+            if (isSelect == true) {
+                Lectores lectorDao = new Lectores();
+
+                int Id = Integer.parseInt(txtIdLector.getText());
+
+                Lector lector = new Lector(Id);
+                lectorDao.DeleteLector(lector);
+                carga();
+
+                isSelect = false;
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ningun lector", "Aviso", 1);
             }
-            
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error" + ex);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -454,8 +470,8 @@ public class FrmLecctor extends javax.swing.JFrame {
             }
         });
     }
-      public boolean isSelect = false;
-      int Id = 0;
+    public boolean isSelect = false;
+    int Id = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblLector;
